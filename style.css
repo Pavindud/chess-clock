@@ -1,0 +1,365 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #181818;
+  color: #eee;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  overflow: hidden;
+}
+
+.setup {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.setup-box {
+  background: #242424;
+  border: 1px solid #3d3d3d;
+  border-radius: 14px;
+  padding: 28px 24px;
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.setup-box h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.setup label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #ccc;
+  gap: 6px;
+}
+
+.setup input {
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #181818;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.setup input:focus {
+  border-color: #4caf50;
+}
+
+.setup-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.setup button {
+  flex: 1;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+#applyBtn {
+  background: #4caf50;
+  color: #fff;
+}
+
+#applyBtn:hover {
+  background: #43a047;
+}
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.player-clock {
+  width: 260px;
+  height: 320px;
+  font-size: 56px;
+  font-weight: 700;
+  font-family: "Courier New", Courier, monospace;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.1s, outline 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.player-clock:active {
+  transform: scale(0.98);
+}
+
+.white {
+  background: #f5f5f5;
+  color: #1a1a1a;
+}
+
+.black {
+  background: #252525;
+  color: #f5f5f5;
+  border: 1px solid #383838;
+}
+
+.active {
+  outline: 6px solid #4caf50;
+  box-shadow: 0 0 24px rgba(76, 175, 80, 0.5);
+}
+
+.flagged {
+  outline: 6px solid #e53935;
+  box-shadow: 0 0 24px rgba(229, 57, 53, 0.6);
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.controls button {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid #383838;
+  background: #242424;
+  color: #e0e0e0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  padding: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.controls button svg {
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.controls button:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+.controls button:active {
+  transform: scale(0.92);
+}
+
+#startBtn {
+  color: #4caf50;
+}
+#startBtn:hover {
+  background: #4caf50;
+  color: #fff;
+  border-color: #4caf50;
+}
+
+#pauseBtn {
+  color: #ffb300;
+}
+#pauseBtn:hover {
+  background: #ffb300;
+  color: #111;
+  border-color: #ffb300;
+}
+
+#resetBtn {
+  color: #ef5350;
+}
+#resetBtn:hover {
+  background: #ef5350;
+  color: #fff;
+  border-color: #ef5350;
+}
+
+#re-load {
+  color: #42a5f5;
+}
+#re-load:hover {
+  background: #42a5f5;
+  color: #fff;
+  border-color: #42a5f5;
+}
+
+#statusMsg {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  min-height: 24px;
+  text-align: center;
+  color: #ef5350;
+}
+
+@media (max-width: 768px) {
+  body {
+    height: 100vh;
+    height: 100dvh;
+    justify-content: stretch;
+    padding: 10px;
+  }
+
+  .main-layout {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 12px;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .controls {
+    order: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    padding: 6px 4px;
+    width: auto;
+  }
+
+  .controls button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .clock-container {
+    order: 2;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    gap: 10px;
+  }
+
+  .player-clock {
+    width: 100%;
+    height: auto;
+    flex: 1;
+    font-size: clamp(40px, 14vw, 70px);
+    border-radius: 14px;
+  }
+
+  #statusMsg {
+    position: fixed;
+    bottom: 12px;
+    left: 70px;
+    right: 12px;
+    margin: 0;
+    font-size: 14px;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+  #statusMsg{
+    display:none;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    height: 100vh;
+    height: 100dvh;
+    padding: 8px;
+  }
+
+  .main-layout {
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    gap: 12px;
+    padding: 0;
+  }
+
+  .controls {
+    order: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .controls button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .clock-container {
+    order: 2;
+    flex-direction: row;
+    flex: 1;
+    height: 100%;
+    gap: 10px;
+  }
+
+  .player-clock {
+    width: auto;
+    flex: 1;
+    height: 100%;
+    font-size: clamp(36px, 10vh, 56px);
+  }
+  #statusMsg{
+    display:none;
+  }
+}
