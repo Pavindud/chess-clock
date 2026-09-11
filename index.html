@@ -12,6 +12,34 @@
 <div class="setup" id="setupPanel">
   <div class="setup-box">
     <h1>Chess Clock</h1>
+    
+    <label>
+      Game Mode
+      <select id="gameTypeSelect">
+        <option value="Bullet">Bullet</option>
+        <option value="Blitz">Blitz</option>
+        <option onclick="bulletMenuUpdate()" value="Rapid" selected>Rapid</option>
+        <option value="free">Free</option>
+      </select>
+    </label>
+    <label id="timeTemplateGroup">
+      <span  id="timeContText">Time Control</span>
+      <select id="timeTemplateRapid">
+        <option value="0" selected>10 min</option>
+        <option value="1">10 min + 5 sec</option>
+        <option value="2">15 min + 10 sec</option>
+      </select>
+      <select id="timeTemplateBlitz">
+        <option value="0" selected>3 min</option>
+        <option value="1">3 min + 2 sec</option>
+        <option value="2">5 min</option>
+      </select>
+      <select id="timeTemplateBullet">
+        <option value="0" selected>1 min</option>
+        <option value="1">1 min + 2 sec</option>
+        <option value="2">2 min + 1 sec</option>
+      </select>
+    </label>
     <label>
       Minutes per side
       <input type="number" id="minutesInput" value="10" min="1">
@@ -29,6 +57,7 @@
 
 <div class="main-layout">
   <div class="clock-container">
+    
     <button id="whiteClock" class="player-clock white">10:00</button>
     <button id="blackClock" class="player-clock black">10:00</button>
   </div>

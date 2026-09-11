@@ -61,7 +61,8 @@ body {
   gap: 6px;
 }
 
-.setup input {
+.setup input,
+.setup select {
   padding: 10px 12px;
   font-size: 16px;
   border-radius: 8px;
@@ -72,7 +73,17 @@ body {
   transition: border-color 0.2s;
 }
 
-.setup input:focus {
+.setup select {
+  cursor: pointer;
+}
+
+.setup select option {
+  background: #242424;
+  color: #fff;
+}
+
+.setup input:focus,
+.setup select:focus {
   border-color: #4caf50;
 }
 
@@ -92,7 +103,18 @@ body {
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
 }
-
+#timeTemplateBlitz{
+  display: none;
+}
+#timeTemplateBullet{
+  display: none;
+}
+#timeTemplateRapid{
+  display: flex;
+}
+#timeContText{
+  display: flex;
+}
 #applyBtn {
   background: #4caf50;
   color: #fff;
