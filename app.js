@@ -2,6 +2,7 @@ let lastTick = null;
 let animFrame = null;
 let pauseStat = 0;
 let g_mode = null;
+let moveCount =0;
 
 //buttons
 const whiteBtn = document.getElementById('whiteClock');
@@ -26,6 +27,7 @@ const rapidMenu = document.getElementById('timeTemplateRapid');
 const blitzMenu = document.getElementById('timeTemplateBlitz');
 const bulletMenu = document.getElementById('timeTemplateBullet');
 
+const incrementAfterMove = document.getElementById('incrementAfterMove');
 
 clockInit(Number(minutesInput.value), Number(incrementInput.value));
 render();
@@ -131,6 +133,7 @@ function bulletMenuUpdate(){
   }
 }
 function updateTime(){
+  incrementAfterMove.value =0;
   switch(gameTypeSelect.value){
     case 'Rapid':
       rapidMenuUpdate();
@@ -143,6 +146,7 @@ function updateTime(){
       break;
   }
 }
+gameTypeSelect.addEventListener('onchange' , updateTime);
 startBtn.addEventListener('click', () => {
   if (clockIsGameOver()) return;
   clockStart();
@@ -226,6 +230,7 @@ applyBtn.addEventListener('click', () => {
 });
 whiteBtn.addEventListener('click', () => {
   if (clockIsRunning() && clockGetActivePlayer() === 0) clockSwitchTurn();
+  moveCount = moveCount+1;
 });
 
 blackBtn.addEventListener('click', () => {

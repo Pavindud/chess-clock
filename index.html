@@ -15,7 +15,7 @@
     
     <label>
       Game Mode
-      <select onchange="updateTime()" id="gameTypeSelect">
+      <select id="gameTypeSelect">
         <option value="Bullet">Bullet</option>
         <option value="Blitz">Blitz</option>
         <option value="Rapid" selected>Rapid</option>
@@ -48,7 +48,10 @@
       Increment (seconds)
       <input type="number" id="incrementInput" value="0" min="0">
     </label>
-    
+    <label>
+      Increment After move number
+      <input type="number" name="increment-after" value="0" id="incrementAfterMove">
+    </label>
     <div class="setup-buttons">
       <button id="applyBtn">Apply</button>
     </div>

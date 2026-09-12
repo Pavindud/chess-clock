@@ -37,13 +37,25 @@ function clockTick(elapsedMs) {
 function clockSwitchTurn() {
   if (clockState.isGameOver || !clockState.isRunning) return;
 
-  if (clockState.activePlayer === 0) {
+  if(moveCount>incrementAfterMove.value || moveCount==incrementAfterMove.value){
+    if (clockState.activePlayer === 0) {
     clockState.whiteTimeMs += clockState.incrementMs;
     clockState.activePlayer = 1;
-  } else {
+    } 
+    else {
     clockState.blackTimeMs += clockState.incrementMs;
     clockState.activePlayer = 0;
+    }
   }
+  else{
+    if (clockState.activePlayer === 0) {
+    clockState.activePlayer = 1;
+    } 
+    else {
+    clockState.activePlayer = 0;
+   }
+  }
+  
 }
 
 function clockStart() {
