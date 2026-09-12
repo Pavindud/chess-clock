@@ -130,7 +130,19 @@ function bulletMenuUpdate(){
     }
   }
 }
-
+function updateTime(){
+  switch(gameTypeSelect.value){
+    case 'Rapid':
+      rapidMenuUpdate();
+      break;
+    case 'Blitz':
+      blitzMenuUpdate();
+      break;
+    case 'Bullet':
+      bulletMenuUpdate();
+      break;
+  }
+}
 startBtn.addEventListener('click', () => {
   if (clockIsGameOver()) return;
   clockStart();
@@ -180,6 +192,8 @@ gameTypeSelect.addEventListener('change', function() {
   else{
     document.getElementById('timeContText').style.display='flex';
   }
+  document.getElementById('timeTemplate'+gameTypeSelect.value).selectedIndex = 0;
+  updateTime();
   document.getElementById('timeTemplate'+gameTypeSelect.value).style.display = 'flex';
   
 });

@@ -15,10 +15,10 @@
     
     <label>
       Game Mode
-      <select id="gameTypeSelect">
+      <select onchange="updateTime()" id="gameTypeSelect">
         <option value="Bullet">Bullet</option>
         <option value="Blitz">Blitz</option>
-        <option onclick="bulletMenuUpdate()" value="Rapid" selected>Rapid</option>
+        <option value="Rapid" selected>Rapid</option>
         <option value="free">Free</option>
       </select>
     </label>
