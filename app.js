@@ -58,7 +58,6 @@ function render() {
     statusMsg.textContent = '';
   }
 }
-
 function loop(timestamp) {
   if (lastTick === null) lastTick = timestamp;
   const elapsed = timestamp - lastTick;
@@ -231,6 +230,7 @@ applyBtn.addEventListener('click', () => {
 whiteBtn.addEventListener('click', () => {
   if (clockIsRunning() && clockGetActivePlayer() === 0) clockSwitchTurn();
   moveCount = moveCount+1;
+  
 });
 
 blackBtn.addEventListener('click', () => {

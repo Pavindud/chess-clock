@@ -7,13 +7,23 @@ const clockState = {
   isGameOver: false
 };
 
+
 function clockInit(baseMinutes, incrementSeconds) {
-  clockState.whiteTimeMs = baseMinutes * 60000;
-  clockState.blackTimeMs = baseMinutes * 60000;
-  clockState.incrementMs = incrementSeconds * 1000;
-  clockState.activePlayer = 0;
+  if(incrementAfterMove.value==0){
+    clockState.whiteTimeMs = baseMinutes * 60000 + incrementSeconds*1000;
+    clockState.blackTimeMs = baseMinutes * 60000 + incrementSeconds*1000;
+    clockState.incrementMs = incrementSeconds * 1000;
+    
+  }
+  else{
+    clockState.whiteTimeMs = baseMinutes * 60000;
+    clockState.blackTimeMs = baseMinutes * 60000;
+    clockState.incrementMs = incrementSeconds * 1000;
+    
+  }
   clockState.isRunning = false;
   clockState.isGameOver = false;
+  clockState.activePlayer = 0;
 }
 
 function clockTick(elapsedMs) {
@@ -53,7 +63,7 @@ function clockSwitchTurn() {
     } 
     else {
     clockState.activePlayer = 0;
-   }
+    }
   }
   
 }
